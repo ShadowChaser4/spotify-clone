@@ -14,9 +14,16 @@ const FileSchema = new mongoose.Schema({
     name: String, 
     location: String, 
     album: String, 
-    artist: String, 
     requested: Number
 })
 
+const albumSchema = new mongoose.Schema({
+    album_name : String, 
+    artist: String, 
+    viewed: Number, 
+    label:String,
+    songs: Array
+})
 userSchema.plugin(passportLocalMongoose)
 module.exports = User = mongoose.model("User", userSchema)
+module.exports = Album = mongoose.model("Album", albumSchema);

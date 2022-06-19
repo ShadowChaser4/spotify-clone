@@ -4,10 +4,10 @@ const bodyparser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session')
 const MongoStore = require('connect-mongodb-session')(session);
+const cors = require("cors")
 
 
-
-
+app.use(cors())
 
 app.use(bodyparser.urlencoded({extended:true})); 
 app.use(express.static("../Public"))
@@ -23,7 +23,7 @@ app.use(
         resave:false, 
         saveUninitialized:true,
         cookie:{
-            maxAge:(1000 * 60 * 100)
+            maxAge:(12*21*60*60)
         }
     })
 )
